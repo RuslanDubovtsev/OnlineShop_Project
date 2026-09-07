@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+{% load static %}
+{% load bootstrap5 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
+    <meta charset="UTF-8">
+    <title>Delete</title>
+</head>
+<body class="body1">
+<div class="reg">
+    <div class="reg_wrapper">
+        <h1>Вы уверены, что хотите удалить товар?</h1>
+        <form method="post">
+            {% csrf_token %}
+            <input type="submit" value="Delete" class="btn btn-danger"/>
+        </form>
+        <form action="{% url 'shop:main' %}">
+            <button class="add" type="submit" style="margin-top: 5px;">Нет</button>
+        </form>
+    </div>
+</div>
+
+</body>
+</html>

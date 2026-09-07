@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+{% load static %}
+{% load bootstrap5 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
+    <meta charset="UTF-8">
+    <title>Profile</title>
+</head>
+<body class="body1">
+<header>
+    <div class="container5">
+        <div class="container__block">
+            <div class="container_info">
+                <h2 class="container_name">ПокупайТочкаKZ</h2>
+                <div class="container_link">Лучшие товары на свете!</div>
+            </div>
+        </div>
+            <form action="{% url 'shop:main' %}">
+                <button type="submit" class="btn btn-primary" >Назад</button>
+            </form>
+        {% if perms.user.can_see_link %}
+            <form action="{% url 'shop:add_goods' %}">
+                <button class="add_goods_button" type="submit">Добавление товара</button>
+            </form>
+        {% endif %}
+
+        <div class="dropdown">
+          <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown">
+            Дополнительно
+          </button>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="{% url 'user:profile' %}">Профиль</a></li>
+            <li><a class="dropdown-item" href="{% url 'user:logout' %}">Выйти из аккаунта</a></li>
+<!--            <li><a class="dropdown-item" href="#">Link 3</a></li>-->
+          </ul>
+        </div>
+    </div>
+</header>
+<div class="container_profile">
+    <div class="block_profile">
+        <h2>Добро пожаловать в профиль!</h2>
+        {% for u in profile_user %}
+        <div>Имя: {{ u.name }}</div>
+        <div>Почта: {{ u.user }}</div>
+        <div>Дата регистрации: {{ u.date_registration }}</div>
+        <div>Место жительства: {{ u.location }}</div>
+        <div>Группа: {{ u.group }}</div>
+        <div>Информация: {{ u.info }}</div>
+        {% endfor %}
+        {% if perms.user.can_see_link %}
+            <div>Компания: {{ user.vendor.company }}</div>
+        {% endif %}
+
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+{% load static %}
+{% load bootstrap5 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
+    <meta charset="UTF-8">
+    <title>Vendor_reg</title>
+</head>
+<header>
+    <div class="container5">
+        <div class="container__block">
+            <div class="container_info">
+                <h2 class="container_name">ПокупайТочкаKZ</h2>
+                <div class="container_link">Лучшие товары на свете!</div>
+            </div>
+        </div>
+            <form action="{% url 'shop:main' %}">
+                <button type="submit" class="btn btn-primary" style="margin-right: 20px;">Назад</button>
+            </form>
+        {% if perms.user.can_see_link %}
+            <form action="{% url 'shop:add_goods' %}">
+                <button class="add_goods_button" type="submit">Добавление товара</button>
+            </form>
+        {% endif %}
+    </div>
+</header>
+<body class="body1">
+<div class="reg">
+    <div class="reg_wrapper">
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="add" >Submit</button>
+        </form>
+    </div>
+</div>
+</body>
+</html>

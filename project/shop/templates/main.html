@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+{% load static %}
+{% load bootstrap5 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
+    <meta charset="UTF-8">
+    <title>Online_Shop</title>
+</head>
+<body class="body1">
+
+{% if user.is_authenticated %}
+
+    <div class="container5">
+        <div class="container__block">
+            <div class="container_info">
+                <h2 class="container_name">ПокупайТочкаKZ</h2>
+                <div class="container_link">Лучшие товары на свете!</div>
+            </div>
+        </div>
+        {% if perms.user.can_see_link %}
+            <form action="{% url 'shop:add_goods' %}">
+                <button class="add_goods_button" type="submit">Добавление товара</button>
+            </form>
+        {% endif %}
+        <div class="dropdown">
+          <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown">
+            Дополнительно
+          </button>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="{% url 'user:profile' %}">Профиль</a></li>
+            <li><a class="dropdown-item" href="{% url 'user:logout' %}">Выйти из аккаунта</a></li>
+<!--            <li><a class="dropdown-item" href="#">Link 3</a></li>-->
+          </ul>
+        </div>
+    </div>
+
+<!--<div>-->
+<!--    <a href="{% url 'user:add_profile' %}">Создать профиль</a>-->
+<!--</div>-->
+<section class="section1">
+    <div class="container_rubrics">
+        <div class="block_rubrics">
+            <h3>Категории:</h3>
+            <hr>
+            <div class="rubrics">
+                {% for rub in rubric %}
+                <div class="rubrics_div"><a href="{% url 'shop:detail_goods' pk=rub.pk %}" class="rubric_title">
+                    {{ rub.rubric_title }}</a></div>
+                {% endfor %}
+            </div>      
+        </div>
+    </div>
+    <div class="container_goods">
+        <div class="block_goods">
+            {% for good in goods %}
+                <div class="wrapper_goods">
+                    <div class="goods">
+                        <div>
+                            <img class="img_good" src="{{ good.photo_good.url }}" style="width: 100%; height: 200px;">
+                        </div>
+                        <div>
+                            <a class='goods_title' href="{% url 'shop:comment_goods' pk=good.pk %}">{{ good.title }}</a>
+                        </div>
+                        {% for rub in rubric %}
+                            {% if rub == good.rubric %}
+                                <div><a class='goods_rubric_title' href="{% url 'shop:detail_goods' pk=rub.pk %}">Категория: {{ rub.rubric_title }}</a></div>
+                            {% endif %}
+                        {% endfor %}
+                        <div class="limiter">
+                            <div class="good_short">{{ good.short_information }}</div>
+                        </div>
+                        <div class="good_cost">{{ good.cost }}</div>
+                        <div class="good_date">{{ good.date }}</div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+{% else %}
+    <div class="container5">
+        <div class="container__block">
+            <div class="container_info">
+                <h2 class="container_name">ПокупайТочкаKZ</h2>
+                <div class="container_link">Лучшие товары на свете!</div>
+            </div>
+        </div>
+        <div class="dropdown">
+          <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown">
+            Дополнительно
+          </button>
+          <ul class="dropdown-menu">
+<!--            <li><a class="dropdown-item" href="#">Link 3</a></li>-->
+          </ul>
+        </div>
+    </div>
+<div class="container_registration">
+    <div class="block_vendor">
+        <div class="register_name">
+            <h4>Продавец</h4>
+        </div>
+        <div class="register_info">
+            <div>Зарегистрируетесь, если хотите стать продавцом</div>
+        </div>
+        <div class="register_agreement">
+            <div>Важно! Работа продавцем на нашем сайте не освобождает от законов вашей страны! Также, вы должны
+                ознакомиться с <a href="{% url 'shop:agreement' %}">Условиями Пользовательского Соглашения</a>.
+            Помните, ответственность полностью лежит на вас согласно Пользовательскому Соглашению</div>
+        </div>
+        <div class="register_button">
+            <form action="{% url 'user:vendor_reg' %}">
+                <button class='button_register' type="submit">Продавец</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="block_buyer">
+        <div class="register_name">
+            <h4>Покупатель</h4>
+        </div>
+        <div class="register_info">
+            <div>Зарегистрируетесь, если хотите покупать лучшие товары в нашем магазине ПокупайТочкаKZ!</div>
+        </div>
+        <div class="register_agreement">
+            <div>Не знание <a href="{% url 'shop:agreement' %}">Условий Пользовательского Соглашения</a> вы не
+                освобождаетесь от ответственности при использовании нашего Сайта. Советуем вам ознакомиться с ним</div>
+        </div>
+        <div class="register_button">
+            <form action="{% url 'user:buyer_reg' %}">
+                <button class='button_register' type="submit">Покупатель</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="block_login">
+        <div class="register_name">
+            <h4>Логин</h4>
+        </div>
+        <div class="register_info">
+            <div>Уже зарегистрированы? Тогда войдите в свой аккаунт</div>
+        </div>
+        <div class="register_agreement">
+            <div>Ваш статус будет сохранен</div>
+        </div>
+        <div class="register_button">
+            <form action="{% url 'user:login' %}">
+                <button class='button_register' type="submit">Логин</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endif %}
+
+
+</body>
+</html>

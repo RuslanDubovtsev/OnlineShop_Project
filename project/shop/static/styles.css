@@ -1,0 +1,336 @@
+.container5 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgba(210, 238, 34, 0.941);
+    padding-bottom: 10px;
+
+}
+
+.body1 {
+    margin: 0px;
+    background-color: rgb(237, 237, 237);
+}
+
+.container_info {
+    display: flex;
+    align-items: center;
+}
+
+.container__block {
+    display: flex;
+}
+
+.container_name {
+    margin-left: 10px;
+    margin-right: 20px;
+    text-shadow: 1px 1px 1px red;
+    font-size: 2.5rem;
+    text-decoration: underline;
+    font-style: italic;
+}
+
+.container_link {
+    font-size: 30px;
+    padding: 10px;
+}
+
+.dropdown {
+    margin: 10px 15px 10px 10px;
+}
+
+.add_goods_button {
+    background-color: blueviolet;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    transition: 1s;
+    cursor:grab;
+    width: 200px;
+    height: 40px;
+    margin-left: 350px;
+}
+
+.add_goods_button:hover {
+    width: 200px;
+    height: 45px; 
+    transform: scale(1.1);
+}
+
+
+
+.section1 {
+    display: grid;
+    grid-template-areas:
+    'section1 section2';
+    grid-template-columns: 250px;
+}
+
+.container_rubrics {
+    display: flex;
+    justify-content: center;
+    grid-area: section1;
+    background-color: rgba(255, 255, 255, 0.941);
+    margin: 11px;
+    max-height: 500px;
+}
+
+.rubrics {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.rubrics_div {
+    margin-bottom: 10px;
+}
+
+.rubric_title {
+    font-family: sans-serif;
+    text-decoration: none;
+    color: rgb(20, 20, 20);
+    font-size: 18px;
+}
+
+
+.container_goods {
+    display: flex;
+    grid-area: section2;
+    background-color: rgba(255, 255, 255, 0.941);
+    margin: 11px 20px 11px 15px;
+}
+
+.block_goods{
+    display: grid;
+    grid-template-areas: 
+    'good1 good1 good1 good1';
+    grid-template-columns: 260px 260px 260px 260px;
+    /* grid-template-rows: 100px; */
+    gap: 50px;
+    margin-left: 17px;
+}
+
+.wrapper_goods {
+    margin: 10px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0px 0px 3px 0px rgba(0,0,0,0.2)
+}
+
+.goods {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px;
+    border-radius: 40px;
+}
+
+.img_good {
+    border-radius: 10px;
+}
+
+.goods_title {
+    font-size: 18px;
+    text-decoration: none;
+}
+
+.goods_rubric_title {
+    text-decoration: none;
+}
+
+.good_short {
+    color:rgb(73, 71, 71);
+    font-size: 13px;
+}
+
+.good_date {
+    font-size: 10px;
+    margin: 5px 0px 0px 45%;
+}
+
+
+
+.container_registration {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 10%;
+}
+
+.block_vendor, .block_buyer, .block_login{
+    /* display: flex;
+    flex-direction:column;
+    align-items: center; */
+    background-color: white;
+    border-radius: 30px;
+    box-shadow: 0px 0px 3px 0px rgba(0,0,0,0.2);
+    width: 300px;
+    /* height: 350px; */
+    margin: 10px;
+    min-height: 304px;
+}
+
+.register_name {
+    display: flex;
+    justify-content: center;
+    margin: 10px;
+}
+
+.register_info {
+    display: flex;
+    justify-content: center;
+    margin: 10px;
+}
+
+.register_agreement {
+    display: flex;
+    justify-content: center;
+    margin: 10px;
+    font-size: 11px;
+    color:rgb(73, 71, 71);
+}
+
+.register_button {
+    display: flex;
+    margin: 10% 10px 20px 10px;
+    justify-content: center;
+
+}
+
+.button_register {
+    width: 150px;
+    height: 40px;
+    background-color:rgb(255, 251, 1);
+    border: 1px solid #bdbdbd;
+    border-radius: 5px;
+    cursor: grab;
+    transition: 1s;
+}
+
+.button_register:hover {
+    background-color: rgb(255, 204, 0);
+}
+
+
+
+.reg {
+    display: flex;
+    justify-content: center;
+}
+
+.reg_wrapper {
+    background-color: white;
+    padding: 10px;
+    margin-top: 3%;
+}
+
+
+.add {
+    /* width: 100px; */
+    height: 30px;
+    border-radius: 5px;
+    background-color:rgb(0, 133, 243);
+    border: 1px solid #bdbdbd;
+    color: white;
+    padding: 0px 10px;
+}
+
+
+.rubric_in_shop {
+    margin: 10px;
+    color: darkorange;
+}
+
+
+.container_comment_goods {
+    display: flex;
+    margin-left: 10px;
+}
+
+.block_goods_foto {
+    padding: 10px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px 3px rgba(0,0,0,0.2);
+}
+
+.goods_photo {
+    border-radius: 6px;
+    max-height: 500px;
+    max-height: 350px;
+}
+
+.title_good_shop {
+    color: darkorange;
+    font-size: 30px;
+}
+
+.block_goods_info {
+    margin-left: 45px;
+    width: 400px;
+}
+
+.short_info_shop {
+    color:rgb(109, 109, 109);
+    margin-top: 5px;
+}
+
+.cost_shop {
+    font-size: 17px;
+}
+
+.review {
+    color:darkorange;
+    margin-left: 10px;
+}
+
+.review_block {
+    margin-left: 10px;
+}
+
+.container_comments {
+    margin-left: 30px;
+    padding: 0px 5px;
+    
+}
+
+.block_comments {
+    box-shadow: 0px 0px 3px 0px rgba(0,0,0,0.2);
+    width: 500px;
+    margin-bottom: 10px;
+    padding: 10px
+}
+
+.hr_comment {
+    color: rgb(181, 181, 181);
+}
+
+.name_block {
+    display: flex;
+    align-items: center;
+}
+
+.name_comment {
+    font-size: 20px;
+}
+
+.date_comment, .delete_comments {
+    margin-left: 10px;
+}
+
+.info_comment {
+    margin-left: 20px;
+}
+
+
+
+.container_profile {
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+}
+
+.block_profile {
+    background-color: white;
+    padding: 10px;
+}

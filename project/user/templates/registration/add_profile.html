@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+{% load static %}
+{% load bootstrap5 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
+    <meta charset="UTF-8">
+    <title>Add_Profile</title>
+</head>
+<body class="body1">
+<div class="reg">
+    <div class="reg_wrapper">
+        <h1>И еще немного о вас..</h1>
+        <form method="post">
+          {% csrf_token %}
+          {{ form.as_p }}
+          <button class="add" type="submit">Зарегистрироваться</button>
+        </form>
+    </div>
+</div>
+
+
+</body>
+</html>
